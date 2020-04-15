@@ -1,14 +1,14 @@
-# Welcome to the makemy docs!
+# makemy docs
 
-## Browse documents:
+## Browse the document:
 
-### 1. **[A deeper understanding](#a-deeper-understanding-of-makemy)**
+### 1. **[A deeper understanding 🧠](#a-deeper-understanding-of-makemy)** 
 
-### 2. **[How to install and use makemy](#how-to-use)**
+### 2. **[How to install and use makemy ⬇️](#how-to-use)**
 
-### 3. **[API](#api)**
+### 3. **[API 💻](#api)**
 
-### 4. **[How to work with the allPosts.json file](#how-to-work-with-the-allposts-json-file)**
+### 4. **[How to work with the allPosts.json file](#how-to-work-with-the-allpostsjson-file)**
 
 ### 5. **[Working with the init-styling of a post](#working-with-the-init-css-styles-of-a-post)**
 
@@ -43,6 +43,8 @@ While keeping focus on making the usage of makemy simple, the tool also cares ab
 
 
 # How to use:
+
+_Note: Some of the gifs used are somewhat large, so they might take some time do download._
 
 ## 1️. Install with `npm install makemy`
 
