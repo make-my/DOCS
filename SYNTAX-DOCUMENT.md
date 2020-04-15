@@ -1,26 +1,23 @@
-# Document explaining the mymake syntax used for writing posts 📝
+# Explaining the mymake sugar-syntax used for writing posts 📝
 
 
 ### Browse document
 
 1. [Main idea 💡](#the-main-idea)
 
-2. [Core syntax ⚙️](#core-syntax)
+2. [Document syntax 📝](#document-syntax)
 
-3. [Document syntax 📝](#document-syntax)
+3. [Customized HTML tags 🏷️](#customized-html-tags)
 
-4. [Customized HTML tags 🏷️](#customized-html-tags)
+4. [Syntax that doesn't require symbols ✍🏻](#syntax-that-doesnt-require-symbols)
 
-5. [Syntax that doesn't require symbols ✍🏻](#syntax-that-doesnt-require-symbols)
-
-6. [Full example of a post 📑](#full-example-of-a-post)
+5. [Full example of a post 📑](#full-example-of-a-post)
 
 &nbsp;
 
 # The main idea
 
 The idea behind makemys syntax is to combine the easy parts of HTML and normal text writing. To create components/section, you simply use the trigger '#' and the name of the component. Everything written beneath the trigger will be added to the section until a new trigger is used.
-
 
 ### Currently available triggers:
 
@@ -88,18 +85,6 @@ After this i see that there's no more text in the document. I'll go out of my la
 
 &nbsp;
 
-# Core-syntax (required)
-
-### This has to be inserted at the the start/top of the post
-
---name: Here you enter the name of your post. This value will be used in the title of the post-page and in the preview-storage.
-
---introduction: Here you can give a small introduction to the post. Will only be used in the preview-storage.
-
-&nbsp;
-
-&nbsp;
-
 # Document-syntax
 
 Note: None of the syntaxes are space sensitive. So it doesn't really matter if you write # Title - 3, #Title-3, # Title- 3, # Code, #Code etc.
@@ -127,7 +112,7 @@ Creates a normal text-section where everything will be created as written in the
 Here is my first line in this section.
 And here's a link to a cool page <a href="https://github.com">.
 
-Because there were an empty space between this line and the one above, will an automatic breakpoint be set between these two paragraphs.
+Because there was an empty space between this line and the one above, will an automatic breakpoint be set between these two paragraphs.
 And finally here's a list:
     <ol>
         <li>Egg</li>
@@ -242,8 +227,13 @@ Here i could write some text about something I care about.
 <a href="/test/posts/i-like-waffles/">Click here!!</a>
 Above me is a link that you can click on, and this link works also <a href="/test/posts/i-like-waffles/">Click for a list</a>.
 
-
-You can also write seperate paragraphs within a section. To do this, simply add 2 empty lines where you want the gap to be created (done right above this line)
+You know, maybe i should also learn how to make pancakes. In that case, i would need to buy:
+<ul>
+   <li>Milk</li>
+   <li>Egg</li>
+   <li>Butter</li>
+   <li>Flour</li>
+</ul>
 
 #Title-3
 
@@ -255,32 +245,9 @@ function sayHello() {
     return 'Hello';
 }
 
-
 # Title
 
-New title again, should be h2
-
-
-# Quote
-
-“Two things are infinite: the universe and human stupidity;
-and I'm not sure about the universe.”
-
---- Albert Einstein
-
-
-# Title - 6
-
-This is another title of my blog-post
-
-# Text
-
-Here i could write some text about something I care about.
-<a href="/test/posts/i-like-waffles/">Click here!!</a>
-Above me is a link that you can click on, and this link works also <a href="#list">Click for a list</a>.
-
-You can also write seperate paragraphs within a section. The program will automatically create a gap for you in the html and css (at the same place you have done in your blog document).
-
+New title again, this one will be an h2
 
 # Quote
 
