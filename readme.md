@@ -2,19 +2,19 @@
 
 ## 1️. Install with `npm install makemy`
 
-![](media/npm-install.gif)
+![Loading...](media/npm-install.gif)
 
 &nbsp;
 
 ## 2️. Run `makemy-init` to get a pre-made "generator" folder in your project
 
-![](media/makemy-init.gif)
+![Loading...](media/makemy-init.gif)
 
 &nbsp;
 
 ## 3. Create your post and template in the project - and run makemy.page()
 
-![](media/createpage.gif)
+![Loading...](media/createpage.gif)
 
 &nbsp;
 
@@ -24,7 +24,7 @@
 
 #### Example of two generated pages, one with markdown and one with the makemy sugar-syntax:
 
-![](media/page-example.gif)
+![Loading...](media/page-example.gif)
 
 &nbsp;
 
@@ -69,7 +69,7 @@
 
 #### Example of using makemy.page to update an already existing page:
 
-![](media/update-example.gif)
+![Loading...](media/update-example.gif)
 
 #### Code example:
 
