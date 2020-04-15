@@ -1,7 +1,4 @@
-# Explaining the mymake sugar-syntax used for writing posts 📝
-
-
-### Browse document
+## Browse the document
 
 1. [Main idea 💡](#the-main-idea)
 
