@@ -6,9 +6,12 @@
 
 ### 3. **[API 💻](#api)**
 
-### 4. **[How to work with the allPosts.json file](#how-to-work-with-the-allpostsjson-file)**
+### 4. **[How to write a template](#how-to-write-a-template-for-your-posts)**
 
 ### 5. **[Working with the init-styling of a post](#working-with-the-init-css-styles-of-a-post)**
+
+### 6. **[How to work with the allPosts.json file](#how-to-work-with-the-allpostsjson-file)**
+
 
 #### Extra reading material: [Syntax Document - The syntax created by makemy](https://github.com/make-my/DOCS/blob/master/SYNTAX-DOCUMENT.md)
 
@@ -193,116 +196,40 @@ makemy.template(__dirname, options);
 
 &nbsp;
 
-# How to work with the allPosts.json file
 
-## What is stored in here?
 
-One of the ways makemy allows for easy deployment and fetching of your posts without needing a server is by storing core information about them in a JSON file called `allPosts.json`. This file is located in the "posts"-folder together with your other posts, and stores these informations about every single post:
+# How to write a template for your posts
 
-- The url of the post
-- The name of the post
-- The creation date in a readable string
-- The creation date in milliseconds
+One of the core ideas for allowing makemy to be an easy tool to use is by making the steps from the _"here is how i would like my page to look like"_ input to _"here's your page, exactly how you wanted"_ output as easy and short as possible. The way makemy does this is by taking in a normal HTML page, styled exactly how you like it, with only 1 trigger-tag: `<POST>`.
 
-## How the allPosts.json file is structured:
+Wherever you place the `<POST>` tag is where your post will be inserted, it's as easy as that!
 
-The JSON file contains one parent array called "posts". Here are all the core-informations about the posts stored in objects. When generating a page will it automatically be inserted into the first index of the array. If you want to choose how you want the posts to be sorted (newest or oldest first), can this be done with the [makemy.json()](#makemyjsonpath-to-directory-options) tool. 
+## Short and simple example of a template:
 
-```json
+```html
 
-{
-  "posts": [
-    {
-      "url": "posts/my-second-post",
-      "name": "A post written entirely with the makemy sugar-syntax",
-      "introduction": "You know, the sugar-syntax isn't that bad after all... i think.",
-      "creationDate": "Tuesday 14th of April 2020",
-      "creationDateMS": 1586887526873.5598
-    },
-    {
-      "url": "posts/my-first-post",
-      "name": "This is the first blog post i have created",
-      "introduction": "You know how this post was created automatically? It's quite cool",
-      "creationDate": "Friday 10th of April 2020",
-      "creationDateMS": 1586515891051.72
-    }
-    ...
-  ]
-}
-
-```
-
-## How to get the data in the allPosts.json file:
-
-### Here's an example on how to fetch all the posts and create "preview-modules" which are inserted into your page (only vanilla JavaScript):
-
-```js
-
-'use strict';
-
-/**
- * Because we want to work asynchronously throughout the code
- * it's easiest (and safer) to just wrap our whole code in a async IIFE
- */
-
-(async () => {
-  // Function for fetching the JSON and parsing it.
-  async function getPosts(url) {
-    const response = await fetch(url, {
-      method: 'GET',
-      mode: 'cors',
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json' }
-    });
-    return await response.json();
-  }
-
-  const url = location.origin;
-
-  const postsJSON = await getPosts(`${url}/posts/allPosts.json`);
-
-  const posts = postsJSON.posts;
-
-  /**
-   * Here's one solution to dynamically create previews of the posts into HTML-Element.
-   * This function inserts every post in a wrapper, which contains the title, introduction and created date for the post.
-   */
-
-  function insertPostsToDOM(posts, parent) {
-    for (const post of posts) {
-      const previewWrapper = document.createElement('div');
-
-      previewWrapper.classList.add('preview-wrapper');
-
-      previewWrapper.addEventListener(
-        'click',
-        () => (window.location = `${url}/${post.url}`)
-      );
-
-      const createPreviewContent = (element, className, content) => {
-        const previewContent = document.createElement(element);
-        previewContent.classList.add(className);
-        previewContent.textContent = content;
-        previewWrapper.appendChild(previewContent);
-      };
-
-      createPreviewContent('h3', 'preview-title', post.name);
-      createPreviewContent('p', 'preview-introduction', post.introduction);
-      createPreviewContent('time', 'preview-date', post.creationDate);
-
-      parent.insertAdjacentElement('beforeend', previewWrapper);
-    }
-  }
-
-  insertPostsToDOM(posts, document.querySelector('.posts-preview));
-})(window);
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to my post!</title>
+    <link rel="stylesheet" href="styles.css" /></head>
+  <body>
+    <nav>This is my header</nav>
+    
+    <POST>
+      
+    <footer>This is my footer</footer>
+  </body>
+</html>
 
 ```
 
 &nbsp;
 
 &nbsp;
+
 
 # Working with the init CSS-styles of a post
 
@@ -446,3 +373,117 @@ pre,
 }
 
 ```
+
+&nbsp;
+
+&nbsp;
+
+
+# How to work with the allPosts.json file
+
+## What is stored in here?
+
+One of the ways makemy allows for easy deployment and fetching of your posts without needing a server is by storing core information about them in a JSON file called `allPosts.json`. This file is located in the "posts"-folder together with your other posts, and stores these informations about every single post:
+
+- The url of the post
+- The name of the post
+- The creation date in a readable string
+- The creation date in milliseconds
+
+## How the allPosts.json file is structured:
+
+The JSON file contains one parent array called "posts". Here are all the core-informations about the posts stored in objects. When generating a page will it automatically be inserted into the first index of the array. If you want to choose how you want the posts to be sorted (newest or oldest first), can this be done with the [makemy.json()](#makemyjsonpath-to-directory-options) tool. 
+
+```json
+
+{
+  "posts": [
+    {
+      "url": "posts/my-second-post",
+      "name": "A post written entirely with the makemy sugar-syntax",
+      "introduction": "You know, the sugar-syntax isn't that bad after all... i think.",
+      "creationDate": "Tuesday 14th of April 2020",
+      "creationDateMS": 1586887526873.5598
+    },
+    {
+      "url": "posts/my-first-post",
+      "name": "This is the first blog post i have created",
+      "introduction": "You know how this post was created automatically? It's quite cool",
+      "creationDate": "Friday 10th of April 2020",
+      "creationDateMS": 1586515891051.72
+    }
+    ...
+  ]
+}
+
+```
+
+
+## How to get the data in the allPosts.json file:
+
+### Here's an example on how to fetch all the posts and create "preview-modules" which are inserted into your page (only vanilla JavaScript):
+
+```js
+
+'use strict';
+
+/**
+ * Because we want to work asynchronously throughout the code
+ * it's easiest (and safer) to just wrap our whole code in a async IIFE
+ */
+
+(async () => {
+  // Function for fetching the JSON and parsing it.
+  async function getPosts(url) {
+    const response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    return await response.json();
+  }
+
+  const url = location.origin;
+
+  const postsJSON = await getPosts(`${url}/posts/allPosts.json`);
+
+  const posts = postsJSON.posts;
+
+  /**
+   * Here's one solution to dynamically create previews of the posts into HTML-Element.
+   * This function inserts every post in a wrapper, which contains the title, introduction and created date for the post.
+   */
+
+  function insertPostsToDOM(posts, parent) {
+    for (const post of posts) {
+      const previewWrapper = document.createElement('div');
+
+      previewWrapper.classList.add('preview-wrapper');
+
+      previewWrapper.addEventListener(
+        'click',
+        () => (window.location = `${url}/${post.url}`)
+      );
+
+      const createPreviewContent = (element, className, content) => {
+        const previewContent = document.createElement(element);
+        previewContent.classList.add(className);
+        previewContent.textContent = content;
+        previewWrapper.appendChild(previewContent);
+      };
+
+      createPreviewContent('h3', 'preview-title', post.name);
+      createPreviewContent('p', 'preview-introduction', post.introduction);
+      createPreviewContent('time', 'preview-date', post.creationDate);
+
+      parent.insertAdjacentElement('beforeend', previewWrapper);
+    }
+  }
+
+  insertPostsToDOM(posts, document.querySelector('.posts-preview));
+})(window);
+
+
+```
+
