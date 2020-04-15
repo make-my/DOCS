@@ -1,5 +1,3 @@
-# makemy docs
-
 ## Browse the document:
 
 ### 1. **[A deeper understanding 🧠](#a-deeper-understanding-of-makemy)** 
