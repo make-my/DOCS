@@ -6,11 +6,13 @@
 
 ### 3. **[API 💻](#api)**
 
-### 4. **[How to write a template](#how-to-write-a-template-for-your-posts)**
+### 4. **[How to write a post](#how-to-write-a-post)**
 
-### 5. **[Working with the init-styling of a post](#working-with-the-init-css-styles-of-a-post)**
+### 5. **[How to write a template](#how-to-write-a-template-for-your-posts)**
 
-### 6. **[How to work with the allPosts.json file](#how-to-work-with-the-allpostsjson-file)**
+### 6. **[Working with the init-styling of a post](#working-with-the-init-css-styles-of-a-post)**
+
+### 7. **[How to work with the allPosts.json file](#how-to-work-with-the-allpostsjson-file)**
 
 
 #### Extra reading material: [Syntax Document - The syntax created by makemy](https://github.com/make-my/DOCS/blob/master/SYNTAX-DOCUMENT.md)
@@ -196,6 +198,34 @@ makemy.template(__dirname, options);
 
 &nbsp;
 
+
+# How to write a post
+
+There's many different ways to create text-documents and write them in a way that a computer understands. However, to not make things too difficult, makemy supports 2 different types of syntaxes:
+
+- Markdown
+- [makemys sugar-syntax](https://github.com/make-my/DOCS/blob/master/SYNTAX-DOCUMENT.md)
+
+When writing a post, there's only two things that are required to make makemy happy - these are the core-informations about a post. These two are named "name" and "introduction". The way you set these core-informations are by writing them at the top of the document, it's as simple as that. Here's how to write them correctly:
+
+1. Initialize the info with the -- trigger
+2. Write the name first, then the introduction.
+
+### Example:
+
+```
+--name Here is the name of my post
+--introduction ...and here is the introduction to my post. This part can be a little longer, 
+but shouldn't be too long as you should make the reader interested with just a couple of sentences.
+
+```
+
+After that you can write your document just how you would write any normal markdown document (or with the sugar-syntax if you prefer that one).
+
+
+&nbsp;
+
+&nbsp;
 
 
 # How to write a template for your posts
