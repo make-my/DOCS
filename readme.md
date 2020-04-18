@@ -482,8 +482,17 @@ The JSON file contains one parent array called "posts". Here are all the core-in
 
   /**
    * Here's one solution to dynamically create previews of the posts into HTML-Element.
-   * This function inserts every post in a wrapper, which contains the title, introduction and created date for the post.
+   * This function inserts every post in a wrapper, which then contains the title, introduction and created date for the post.
    */
+
+  const postsSection = document.querySelector('main');
+
+  const createPreviewContent = (element, className, content, wrapper) => {
+    const previewContent = document.createElement(element);
+    previewContent.classList.add(className);
+    previewContent.textContent = content;
+    wrapper.appendChild(previewContent);
+  };
 
   function insertPostsToDOM(posts, parent) {
     for (const post of posts) {
@@ -496,22 +505,15 @@ The JSON file contains one parent array called "posts". Here are all the core-in
         () => (window.location = `${url}/${post.url}`)
       );
 
-      const createPreviewContent = (element, className, content) => {
-        const previewContent = document.createElement(element);
-        previewContent.classList.add(className);
-        previewContent.textContent = content;
-        previewWrapper.appendChild(previewContent);
-      };
-
-      createPreviewContent('h3', 'preview-title', post.name);
-      createPreviewContent('p', 'preview-introduction', post.introduction);
-      createPreviewContent('time', 'preview-date', post.creationDate);
+      createPreviewContent('h3', 'preview-title', post.name, previewWrapper);
+      createPreviewContent('p', 'preview-introduction', post.introduction, previewWrapper);
+      createPreviewContent('time', 'preview-date', post.creationDate, previewWrapper);
 
       parent.insertAdjacentElement('beforeend', previewWrapper);
     }
   }
 
-  insertPostsToDOM(posts, document.querySelector('.posts-preview));
+  insertPostsToDOM(posts, postsSection);
 })(window);
 
 
